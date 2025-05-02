@@ -1,2 +1,3 @@
-# 2solar-by-sollit--test-qa
+# 2solar-by-sollit-qa-test
+
 testing project
