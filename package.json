@@ -1,0 +1,26 @@
+{
+  "name": "2solar-by-sollit-qa-test-1",
+  "version": "1.0.0",
+  "description": "testing project",
+  "main": "index.js",
+  "scripts": {
+  "pretest": "tsx auth/auth.setup.ts",
+  "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ComeOnRoach/2solar-by-sollit-qa-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ComeOnRoach/2solar-by-sollit-qa-test/issues"
+  },
+  "homepage": "https://github.com/ComeOnRoach/2solar-by-sollit-qa-test#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.3",
+    "playwright": "^1.52.0"
+  }
+}
