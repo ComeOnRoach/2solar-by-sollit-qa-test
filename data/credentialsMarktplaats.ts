@@ -1,5 +1,7 @@
-export const newTestUserCredentials = {
-    fullName: 'Oleks Dro',
-    email: 'o.drozhcha.nl@gmail.com',
-    password: '20BibibiB!',
+const newTestUserCredentials = {
+    fullName: 'Oleksandr Drozhcha',
+    email: 'idroidodro@gmail.com',
+    password: 'rm&xXCf@8Em5iZ/',
 };
+
+export default newTestUserCredentials;

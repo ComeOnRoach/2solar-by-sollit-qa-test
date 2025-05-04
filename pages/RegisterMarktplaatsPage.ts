@@ -1,5 +1,5 @@
 import { Page, Locator, FrameLocator , expect } from '@playwright/test';
-import { newTestUserCredentials } from '../data/credentialsMarktplaats';
+import newTestUserCredentials  from '../data/credentialsMarktplaats';
 
 type User = typeof newTestUserCredentials;
 

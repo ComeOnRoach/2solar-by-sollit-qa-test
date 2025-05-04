@@ -12,6 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  globalSetup: './global-setup',
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -29,19 +30,21 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    baseURL: 'https://www.marktplaats.nl',
+    storageState: '.auth/authState.json',
   },
 
   /* Configure projects for major browsers */
   projects: [
-    { name: 'setup',
-      testMatch: /.*\.setup\.ts/,},
+    // {
+    //   name: 'setup',
+    //   use: { ...devices['Desktop Chrome'],
+    //     storageState: 'state-marktplaats.json',
+    //    },
+    // },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'],
-        storageState: '.aith/authState.json',
-       },
-       dependencies: ['setup'],
+      use: { ...devices['Desktop Chrome'] },
     },
 
     {
