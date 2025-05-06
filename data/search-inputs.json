@@ -1,5 +1,7 @@
 {
-    "postcode": "1066TK",
-    "location": "Amsterdam",
-    "coordinate": { "x": 400, "y": 300 }
-}
+    "keyword": "Haarlem",
+    "postcode": "2011",
+    "distance": "3000",
+    "category": "91",
+    "city": "Haarlem"
+  }

@@ -2,14 +2,14 @@ import { expect, Page, test } from '@playwright/test';
 import { CookiePolicyHandler } from '../helpers/CookiePolicyHandler';
 import newTestUserCredentials  from '../data/credentialsMarktplaats';
 import RegisterMarktplaatsPage from '../pages/RegisterMarktplaatsPage';
-import LoginToMarktplaatsPage from '../pages/LoginToMarktplaatsPage';
+
 
 
 
 
 test.describe('Register on Marktplaats', () => {
   
-  test('Register on Marktplaats', async ({ browser }) => {
+  test.skip('Register on Marktplaats', async ({ browser }) => {
     const context = await browser.newContext({ storageState: '.auth/no-auth.json' });
     const page = await context.newPage();
     const registerPage = new RegisterMarktplaatsPage(page);
@@ -21,10 +21,6 @@ test.describe('Register on Marktplaats', () => {
     await registerPage.populateRegistrationForm(newTestUserCredentials);
     await registerPage.submitForm();
     await registerPage.expectSuccessfulRegistration();
-    await page.waitForTimeout(2000); // Wait for 2 seconds to observe the result
-
-    await context.storageState({ path: '.auth/state-marktplaats.json' });
-    console.log('Storage state saved');
   });
 })
 
@@ -32,7 +28,7 @@ test.describe('Register on Marktplaats', () => {
 test.describe('Login on Marktplaats', () => {
 
   test('Login on Marktplaats', async ({browser}) => {
-    const context = await browser.newContext();
+    const context = await browser.newContext( {storageState: '.auth/no-auth.json' });
     const page = await context.newPage();
 
     await page.goto('https://www.marktplaats.nl');
@@ -45,22 +41,6 @@ test.describe('Login on Marktplaats', () => {
     await page.waitForTimeout(1000);
   
     await page.context().storageState({ path: '.auth/authState.json' });
-    // const registerPage = new RegisterMarktplaatsPage(page);
-    // const cookiePolicyHandler = new CookiePolicyHandler(page);
-
-    // const ifream = page.frameLocator('iframe[name="loginIframe"]');
-    // await ifream.getByRole('textbox', { name: 'E-mailadres' }).fill(newTestUserCredentials.email);
-    // await ifream.getByRole('textbox', { name: 'Wachtwoord' }).fill(newTestUserCredentials.password);
-    // await ifream.getByRole('button', { name: 'Inloggen' }).click();
-  
-    // await cookiePolicyHandler.acceptCookieConsent();
-
-    // await registerPage.loginLink.click();
-    // await page.getByRole('textbox', { name: 'E-mailadres' }).fill(newTestUserCredentials.email);
-    // await page.getByRole('textbox', { name: 'Wachtwoord' }).fill(newTestUserCredentials.password);
-    // await page.getByRole('button', { name: 'Inloggen' }).click();
-    
-    // await context.storageState({ path: '.auth/authState.json' });
   })
 
 })

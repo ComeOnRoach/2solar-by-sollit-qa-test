@@ -20,7 +20,10 @@ export class SidebarPanel {
     await expect(first).toBeVisible();
     const title = await first.locator('span').innerText();
     const price = await first.locator('strong').innerText();
-    return { title: title.trim(), price: price.trim() };
+    const priceValue = price.match(/€\s*([\d.]+),/);
+    const parsedPrice = priceValue && parseFloat(priceValue[1]);
+
+    return { title: title.trim(), price: parsedPrice?.toString() };
   }
 
   async openFirstItem(): Promise<Page> {

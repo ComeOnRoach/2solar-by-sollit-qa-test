@@ -16,11 +16,8 @@ export default class RegisterMarktplaatsPage {
 
   constructor(page: Page) {
     this.page = page;
-
-    // navigation
     this.loginLink = page.getByRole('link', { name: 'inloggen' });
     this.createAccountLink = page.getByRole('link', { name: 'Account aanmaken' });
-
     this.nameInput = page.getByRole('textbox', { name: 'Je naam op Marktplaats' });
     this.emailInput = page.getByRole('textbox', { name: 'E-mailadres' });
     this.passwordInput = page.getByRole('textbox', {
